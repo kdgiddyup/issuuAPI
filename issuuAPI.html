@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+    <script>
+        var iRequest = "http://api.issuu.com/1_0?action=issuu.documents.list&apiKey=owq32j1gea63hswaii7lzo8ma43nh9n0&access=public&format=json&signature=72cbec143118a3934fd5a5adc78b4d1b";
+        // api key: owq32j1gea63hswaii7lzo8ma43nh9n0
+        /* params in request:
+
+        13tq0hipjctkxdham0dyi3ply261s6uraccesspublicactionissuu.documents.listapikeyowq32j1gea63hswaii7lzo8ma43nh9n0formatjson
+        */
+        $.get(iRequest, function(data) {
+            console.log(data);
+        });
+        //signature is md5 hash of this string (plug in API secret at start):
+        //{api secret}accesspublicactionissuu.documents.listapiKeyowq32j1gea63hswaii7lzo8ma43nh9n0DocumentSortBypublishDateformatjson
+        //results in md5 hash of: 9a62a5834d5a3876661506dcb7f5fda0
+
+
+        // potential responseParams (is adding to req, will need to regenerate MD5 hash):  responseParams title,description,documentId,publishDate
+        // commas must be encoded:  %2C 
+
+        // image: https://image.issuu.com/{documentId}/jpg/page_1_thumb_large.jpg
+        // document: https://issuu.com/theislandpacket/docs/bgrc_new?e=23683651/{50589902}
+    </script>
+</body>
+
+</html>
